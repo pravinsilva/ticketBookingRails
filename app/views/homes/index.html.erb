@@ -1,19 +1,55 @@
 
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
+
 <html>
 	<head>
+		 
+  
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+ <%= javascript_include_tag('js/jquery-1.9.1.min.js') %>
+ <%= javascript_include_tag('js/jquery.leanModal.min.js') %>
+ 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>Cruise Vacation</title>
 		<%= stylesheet_link_tag "style.css" %>
 	</head>
 	<body>
+		
+     
+ 
+  <div id="loginmodal" style="display:none;">
+   	<%= form_for @customer, :as => :customer, :url => sign_in_path(@customer) do |f| %>
+		  <p>
+		    <%= f.label 'Email id:' %><br />
+		    <%= f.text_field :emailid %>
+		  </p>
+		  <p>
+		    <%= f.label 'Password:' %><br />
+		    <%= f.password_field :password %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
+		    <%= f.submit 'Clear Form', :type => 'reset' %>
+		  </p>
+		<% end %>
+  </div>
+  
+  
+<script type="text/javascript">
+$(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });
+  
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+});
+</script>
 		<div id="header">
 		
 	
-			<a href="index.html" id="logo"><%= image_tag "logo.png" %></a>
-			<br />
-			<br />
+			<a href="index.html" id="logo"><div id="img1" ><%= image_tag "logo.png" ,:size => "350x130"  %></div></a>
+		
 			<ul class="navigation">
 				<li class="selected first">
 				<a href="../homes/featured">Home</a>
@@ -27,17 +63,22 @@
 				<li>
 					<a href="cruises.html">Arts &amp; Theatre</a>
 				</li>
+				<li>
+				<a href="../customers/new">Sign up</a> <br />
+				</li>
+				<li>
+		<a href="#loginmodal" id="modaltrigger">Sign In</a>
+		</li>
 			</ul>
-			<a href="../customers/new">Sign up</a> <br />
-		<a href="../signins/sign_in">Sign In</a>
 			
+		
 		    <div id="featured">
 				<div class="first">
 					<ul>
 						<li class="selected first">
 							<a href="../homes/featured">Featured Events</a>
 							<div>
-								<a href="featured.html"><%= image_tag "images/chennai.jpg" , :size => "625x420"  %></a>
+								<a href="featured.html"><%= image_tag "images/chennai.jpg" , :size => "625x340"  %></a>
 								
 							</div>
 						</li>

@@ -1,5 +1,4 @@
-/* Website template by freewebsitetemplates.com */
-/*------------------------- Layout styles ------------------------*/ 
+
 body{
 	background:url(/assets/images/blue.jpg)repeat-x center top #09154F;
 	margin: 0;
@@ -19,7 +18,7 @@ p a,h3 a{
 	width: 960px;
 	margin: 0 auto;
 	overflow: hidden;
-	height: 710px;
+	height: 600px;
 }
 #header ul#navigation,.header ul#navigation{
 	list-style: none;
@@ -66,12 +65,16 @@ p a,h3 a{
 	clear: both;
     display: inline-block;
     float: left;
-    height: 90px;
+    height: 10px;
     margin: 55px 0 0 25px;
     width: 273px;
+    top:500px;
 }
-#header a#logo img,.header a#logo img{
+#img1{
 	border: 0;
+	height:10px;
+	position: absolute;
+	top:20px;
 }
 #header ul.navigation,.header ul.navigation{
 	list-style: none;
@@ -80,7 +83,7 @@ p a,h3 a{
 	margin: 23px 0 0;
 	width: 520px;
 	float: right;
-	top:75px;
+	top:10px;
 	right:78px;
 	position:relative;
 	z-index: 100;
@@ -125,7 +128,7 @@ p a,h3 a{
 	margin: 0;
 	width: 630px;
 	list-style: none;
-	height: 525px;
+	height: 500px;
 	position: relative;
 }
 #header div#featured div ul li.first{
@@ -170,7 +173,7 @@ p a,h3 a{
 }
 #header div#featured div ul li.selected div{
 	width: 630px;
-	height: 425px;
+	height: 370px;
 	position: absolute;
 	border-radius: 5px;
 	left: 0;
@@ -199,7 +202,7 @@ p a,h3 a{
     padding: 0 30px;
     position: absolute;
     text-align: justify;
-    top: 370px;
+    top: 500px;
 	color: #393d42;
 	font-size: 16px;
 	width: auto;
@@ -238,7 +241,7 @@ p a,h3 a{
 #header div#featured div form{
 	height: auto;
     padding: 10px 20px 10px 15px;
-    width: 274px;
+    width: 309px;
 	margin: 0;
 	text-align: center;
 	background: url(/assets/bg-sidebar-bottom-curve.gif) no-repeat center bottom #fff;
@@ -265,7 +268,7 @@ p a,h3 a{
 }
 #header div#featured div div h3{
 	background: url(/assets/interface.gif) no-repeat 0 -160px;
-	width: 309px;
+	width: 310px;
 	height: auto;
 	margin: 15px 0 0;
 }
@@ -274,7 +277,7 @@ p a,h3 a{
 	height: auto;
     padding: 0 0 6px;
     position: static;
-    width: 309px;
+    width: 310px;
 }
 #header div#featured div div ul li{
 	background: #fff;
@@ -283,7 +286,7 @@ p a,h3 a{
     margin: 0;
 	padding: 5px 20px;
 	line-height: 25px;
-	width: 275px;
+	width: 310px;
 }
 #header div#featured div div ul li a{
 	margin: 0;
