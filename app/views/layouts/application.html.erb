@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TicketBooking1</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+<p>
+  <% if current_user %>
+    Logged in as <%= current_user.emailid %>.
+    <a href="../signout/sign_out">Sign Out</a>
+   <% end %>
+</p>
+<%= yield %>
+
+</body>
+</html>
