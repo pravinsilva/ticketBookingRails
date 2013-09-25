@@ -1,5 +1,6 @@
-
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 
 <html>
 	<head>
@@ -7,9 +8,14 @@
   
   <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
   <link rel="icon" href="http://designshack.net/favicon.ico">
- <%= javascript_include_tag('js/jquery-1.9.1.min.js') %>
- <%= javascript_include_tag('js/jquery.leanModal.min.js') %>
+ <%= javascript_include_tag('jquery-1.9.1.min.js') %>
+ <%= javascript_include_tag('jquery.leanModal.min.js') %>
  
+ <%= javascript_include_tag('jquery.jcarousel.min.js') %>
+<%= stylesheet_link_tag "carosel-style.css" %>
+<%= stylesheet_link_tag "carosel-skin.css" %>
+
+
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>Cruise Vacation</title>
 		<%= stylesheet_link_tag "style.css" %>
@@ -37,6 +43,19 @@
   
   
 <script type="text/javascript">
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+    	wrap: 'circular'
+    });
+});
+jQuery(document).ready(function() {
+    jQuery('#mycarousel1').jcarousel({
+    	wrap: 'circular'
+    });
+});
+
+
+
 $(function(){
   $('#loginform').submit(function(e){
     return false;
@@ -45,11 +64,12 @@ $(function(){
   $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
 });
 </script>
+	<div id="container1">
 		<div id="header">
 		
 	
-			<a href="/" id="logo"><div id="img1" ><%= image_tag "logo.png" ,:size => "350x130"  %></div></a>
-		
+			<a href="/" id="logo"><div id="img1" ><%= image_tag "logo.png" ,:size => "300x110"  %></div></a>
+		<div id="mainmenu"></div>
 			<ul class="navigation">
 				<li class="selected first">
 				<a href="../homes/featured">Home</a>
@@ -69,16 +89,16 @@ $(function(){
 				<li>
 		<a href="#loginmodal" id="modaltrigger">Sign In</a>
 		</li>
+		
 			</ul>
 			
-		
-		    <div id="featured">
+			<div id="featured">
 				<div class="first">
 					<ul>
 						<li class="selected first">
 							<a href="../homes/featured">Featured Events</a>
 							<div>
-								<a href="featured.html"><%= image_tag "images/chennai.jpg" , :size => "625x340"  %></a>
+								<a href="featured.html"><%= image_tag "images/phata.jpg" , :size => "625x340"  %></a>
 								
 							</div>
 						</li>
@@ -130,91 +150,54 @@ $(function(){
 				</div>
 			</div>
 		</div> 
-		<div id="content">
+	
 			<div>
-				<div class="first">
-					<h2>New Movies</h2>
-				<ul>
-						<li>
-							<a href="offers.html"><%= image_tag "images/johnday.jpg" , :size => "150x200" %></a>
-							<span><a href="offers.html">John Day</a></span>
-							<p>Maecenas gravida lacus mauris, at interdum ligula</p>
-							<a href="offers.html" class="details">See Details</a>							
-							<a href="offers.html" class="book">Book Now!</a>
-						</li>
-						<li>
-							<a href="offers.html"><%= image_tag "images/grandmasti.jpg" , :size => "150x200" %></a>
-							<span><a href="offers.html">Grand Masti</a></span>
-							<p>Pellentesque molestie arcu vitae lectus</p>
-							<a href="offers.html" class="details">See Details</a>							
-							<a href="offers.html" class="book">Book Now!</a>
-						</li>
-						<li>
-							<a href="offers.html"><%= image_tag "images/satyagraha.jpg" , :size => "150x200" %></a>
-							<span><a href="offers.html">Satyagraha</a></span>
-							<p>7 Days &amp; 3 Days at Aliquam iaculis velit</p>
-							<a href="offers.html" class="details">See Details</a>							
-							<a href="offers.html" class="book">Book Now!</a>
-						</li>
-						<li>
-							<a href="offers.html"><%= image_tag "images/phataposter.jpg" , :size => "150x200" %></a>
-							<span><a href="offers.html">Phata Poster</a></span>
-							<p>Nullam viverra nisi et elit pretium venenatis</p>
-							<a href="offers.html" class="details">See Details</a>							
-							<a href="offers.html" class="book">Book Now!</a>
-						</li>
-					</ul>
-					<a href="deals.html">View all</a>
-				</div>
-				<div>
-					<h2>Special Offers</h2>
-						<ul>
-						<li>
-							<a href="deals.html"><%= image_tag "images/riverside-city.jpg" %></a>
-							<span><a href="deals.html">Donec Nisl Justo</a></span>
-							<p>7 Days &amp; 3 Days at Aliquam iaculis velit</p>
-							<a href="deals.html" class="details">See Details</a>
-							<a href="deals.html" class="book">Book Now!</a>
-						</li>
-						<li>
-							<a href="deals.html"><img src="images/kayaks.jpg" alt=""/></a>
-							<span><a href="deals.html">Pellentesque</a></span>
-							<p>Maecenas gravida lacus mauris, at interdum ligula</p>
-							<a href="deals.html" class="details">See Details</a>							
-							<a href="deals.html" class="book">Book Now!</a>
-						</li>
-						<li>
-							<a href="deals.html"><img src="images/castle.jpg" alt=""/></a>
-							<span><a href="deals.html">QUISQUE</a></span>
-							<p>Pellentesque molestie arcu vitae lectus</p>
-							<a href="deals.html" class="details">See Details</a>							
-							<a href="deals.html" class="book">Book Now!</a>
-						</li>
-						<li>
-							<a href="deals.html"><img src="images/girl-swimming.jpg" alt=""/></a>
-							<span><a href="deals.html">ODIOLOREM</a></span>
-							<p>Nullam viverra nisi et elit pretium venenatis</p>
-							<a href="deals.html" class="details">See Details</a>							
-							<a href="deals.html" class="book">Book Now!</a>
-						</li>
-					</ul>
-					<a href="offers.html">View all</a>
-				</div>
-				<div id="news">
-					<h2>Get Updated</h2>
-					<a href="http://twitter.com/fwtemplates">Follow us <font>Twitter</font></a>
-					<a href="http://facebook.com/freewebsitetemplates">Like us in <font>Facebook</font></a>
-					<a href="#">Visit our <font>Blog</font></a>
-					<a href="http://www.youtube.com/fwtemplates">Watch us in <font>YouTube</font></a>
+			
+			
+			<div id="content">
+				
+					<div id="smallheading">New Movies</div>
 					
-					<div>
-						<h3>Brochure</h3>
-						<a href="#" id="download"><img src="images/brochure.jpg" alt=""/></a>
-						<a href="#">Download Brochure</a>
-						<p>This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text.</p>
-					</div>
-				</div>	
-			</div>
+					
+
+				<div id="wrap">
+ 
+
+  <ul id="mycarousel" class="jcarousel-skin-tango">
+    <li><a href="www.google.com"><%= image_tag "images/grandmasti.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+    
+      <li><a href="www.google.com"><%= image_tag "images/satyagraha.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+        <li><a href="www.google.com"><%= image_tag "images/grownups.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+          <li><a href="www.google.com"><%= image_tag "images/horrorstory.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+          
+            <li><a href="www.google.com"><%= image_tag "images/phatabig.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+
+  </ul>
+
+</div>
+
+
+	</div>	
+		<div id="content">
+				
+					<div id="smallheading">Up Coming Events</div>
+					
+				<div id="wrap">
+ 
+  <ul id="mycarousel1" class="jcarousel-skin-tango">
+    <li><a href="www.google.com"><%= image_tag "images/besharam.jpg" , :size => "150x200" %></a></li>
+      <li><a href="www.google.com"><%= image_tag "images/zanjeer.jpg" , :size => "150x200" %></a></li>
+        <li><a href="www.google.com"><%= image_tag "images/krish.jpg" , :size => "150x200" %></a></li>
+          <li><a href="www.google.com"><%= image_tag "images/boss.jpg" , :size => "150x200" %></a></li>
+          
+            <li><a href="www.google.com"><%= image_tag "images/johnday.jpg" , :size => "150x200" %></a></li>
+
+  </ul>
+
+</div>
+
+
+	</div>	
 		</div>
 		<div id="footer">
 			<div>
@@ -242,5 +225,6 @@ $(function(){
 				<p>&#169; Copyright 2012. All Rights Reserved.</p>
 			</div>
 		</div>
+		
 	</body>
-/html>  
+</html>  
