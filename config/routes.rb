@@ -1,14 +1,31 @@
 TicketBooking1::Application.routes.draw do
+    match 'auth/:provider/callback', to: 'sociallogin#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sociallogin#destroy', as:'signout'
+  
   get "signout/sign_out"
 
   post "sign_in" => "signins#login"
 
   get "/signins/sign_in"
   
+  get "/signins/invalidsignin"
+  
   get "/homes/featured"
-
-  resources :customers
+  
+  get "/signins/admin_page"
+  
+ get "/signins/excursions"
+ 
+ get "/signins/restaurant"
+ resources :events
+  
+  
+  resources :shows
+  
+  resources :sitecustomers
   root :to => 'homes#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

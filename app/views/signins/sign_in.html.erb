@@ -13,19 +13,11 @@
 </head>
 
 <body>
-  <div id="topbar"><a href="http://designshack.net">Back to Design Shack</a></div>
-  <div id="w">
-    <div id="content">
-      <h1>Welcome to the Site!</h1>
-      <p>Just click the login link below to expand the modal window. This is only a demo so the input form will not load anything, but it is easy to connect into a backend system.</p>
-      <center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Modal Login</a></center>
-    </div>
-  </div>
-  <div id="loginmodal" style="display:none;">
-   	<%= form_for @customer, :as => :customer, :url => sign_in_path(@customer) do |f| %>
+ 
+   	<%= form_for @sitecustomer, :as => :sitecustomer, :url => sign_in_path(@sitecustomer) do |f| %>
 		  <p>
 		    <%= f.label 'Email id:' %><br />
-		    <%= f.text_field :emailid %>
+		    <%= f.text_field :email %>
 		  </p>
 		  <p>
 		    <%= f.label 'Password:' %><br />
@@ -36,7 +28,7 @@
 		    <%= f.submit 'Clear Form', :type => 'reset' %>
 		  </p>
 		<% end %>
-  </div>
+		
 <script type="text/javascript">
 $(function(){
   $('#loginform').submit(function(e){

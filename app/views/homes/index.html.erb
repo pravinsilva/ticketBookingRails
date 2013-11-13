@@ -6,15 +6,6 @@
 	<head>
 		 
   
-  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
-  <link rel="icon" href="http://designshack.net/favicon.ico">
- <%= javascript_include_tag('jquery-1.9.1.min.js') %>
- <%= javascript_include_tag('jquery.leanModal.min.js') %>
- 
- <%= javascript_include_tag('jquery.jcarousel.min.js') %>
-<%= stylesheet_link_tag "carosel-style.css" %>
-<%= stylesheet_link_tag "carosel-skin.css" %>
-
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>Cruise Vacation</title>
@@ -23,23 +14,7 @@
 	<body>
 		
      
- 
-  <div id="loginmodal" style="display:none;">
-   	<%= form_for @customer, :as => :customer, :url => sign_in_path(@customer) do |f| %>
-		  <p>
-		    <%= f.label 'Email id:' %><br />
-		    <%= f.text_field :emailid %>
-		  </p>
-		  <p>
-		    <%= f.label 'Password:' %><br />
-		    <%= f.password_field :password %>
-		  </p>
-		  <p>
-		    <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
-		    <%= f.submit 'Clear Form', :type => 'reset' %>
-		  </p>
-		<% end %>
-  </div>
+
   
   
 <script type="text/javascript">
@@ -64,58 +39,19 @@ $(function(){
   $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
 });
 </script>
-	<div id="container1">
-		<div id="header">
-		
-	
-			<a href="/" id="logo"><div id="img1" ><%= image_tag "logo.png" ,:size => "300x110"  %></div></a>
-		<div id="mainmenu"></div>
-			<ul class="navigation">
-				<li class="selected first">
-				<a href="../homes/featured">Home</a>
-				</li>
-				<li>
-					<a href="destinations.html">Events</a>
-				</li>
-				<li>
-					<a href="ships.html">Movies</a>
-				</li>
-				<li>
-					<a href="cruises.html">Arts &amp; Theatre</a>
-				</li>
-				<li>
-				<a href="../customers/new">Sign up</a> <br />
-				</li>
-				<li>
-		<a href="#loginmodal" id="modaltrigger">Sign In</a>
-		</li>
-		
-			</ul>
-			
+
 			<div id="featured">
 				<div class="first">
 					<ul>
 						<li class="selected first">
-							<a href="../homes/featured">Featured Events</a>
-							<div>
-								<a href="featured.html"><%= image_tag "images/phata.jpg" , :size => "625x340"  %></a>
+							
+							
+								<%= image_tag "images/phataposter.jpg" , :size => "625x340"  %>
 								
-							</div>
+							
 						</li>
-						<li>
-							<a href="deals.html">New Events</a>
-							<div>
-								<a href="deals.html"><img src="images/riverside.jpg" alt=""/></a>
-								
-							</div>
-						</li>
-						<li>
-							<a href="offers.html">Special Offers</a>
-							<div>
-								<a href="offers.html"><img src="images/mountains.jpg" alt=""/></a>
-								<p>If you're having problems editing this website template, then don't hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forum/">Forum</a>.</p>
-							</div>
-						</li>
+						
+						
 					</ul>
 				</div>
 				<div>
@@ -134,15 +70,15 @@ $(function(){
 						<h3>Already Booked?</h3>
 						<ul>
 							<li>
-								<a href="excursions.html">Check out our new Theatre</a>
+								<a href="../signins/excursions">Check out our new Theatre</a>
 								<p>Theatre screen with amazing sound and ambience</p>
 							</li>
 							<li>
-								<a href="restaurant.html">Check out our Specialty Restaurant</a>
+								<a href="../signins/restaurant">Check out our Specialty Restaurant</a>
 								<p>Check our new Restaurant serving tasty cuisine</p>
 							</li>
 							<li>
-								<a href="activities.html">Check out our Special Activities</a>
+								<a href="../signins/activities">Check out our Special Activities</a>
 								<p>Please don't hesitate to ask for help </a>.</p>
 							</li>
 						</ul>
@@ -164,14 +100,10 @@ $(function(){
  
 
   <ul id="mycarousel" class="jcarousel-skin-tango">
-    <li><a href="www.google.com"><%= image_tag "images/grandmasti.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
-    
-      <li><a href="www.google.com"><%= image_tag "images/satyagraha.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
-        <li><a href="www.google.com"><%= image_tag "images/grownups.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
-          <li><a href="www.google.com"><%= image_tag "images/horrorstory.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
-          
-            <li><a href="www.google.com"><%= image_tag "images/phatabig.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
-
+  	
+  	<% @events.each do |event| %>
+    <li><a href="/shows/show?<%=event.id%>"><img src= "<%= event.image%>" width="150" height="200"/><div id="buttonfancy">Book Now</div></a></li>
+  <% end %>
   </ul>
 
 </div>
@@ -199,32 +131,3 @@ $(function(){
 
 	</div>	
 		</div>
-		<div id="footer">
-			<div>
-				<ul>
-					<li><a href="about.html">The Company</a></li>
-					<li><a href="blog.html">Visit our Blog</a></li>
-					<li><a href="#">Brochure download</a></li>
-				</ul>
-				<ul>
-					<li><a href="destinations.html">Cruises &amp; Destinations</a></li>
-					<li><a href="ships.html">Ships &amp; Activities</a></li>
-					<li><a href="cruises.html">Prepare for your Cruises</a></li>
-				</ul>
-				<ul>
-					<li><a href="featured.html">Featured Destination</a></li>
-					<li><a href="deals.html">Hot Deals</a></li>
-					<li><a href="offers.html">Special Offers</a></li>
-				</ul>
-				<form action="">
-					<span>Always Get Updated for</span>
-					<h2>Hot Deals &amp; Special Offers</h2>
-					<input type="text" value="Enter email address" id="email" onblur="this.value=!this.value?'Enter email address':this.value;" onfocus="this.select()" onclick="this.value='';" />
-					<input type="submit" id="submit" value=""/>
-				</form>
-				<p>&#169; Copyright 2012. All Rights Reserved.</p>
-			</div>
-		</div>
-		
-	</body>
-</html>  

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<title>Sign Up </title>
+	</head>
+	
+	<body>
+			
+		<div id="container">
+		<div id="title">Experience the magic of Movies and Events. Register here</div>
+		<hr />
+		<div id="image1">
+		<%= image_tag "images/rajkapoor.jpg" ,:size => "500x400"  %>
+		</div>
+		<div id="form">
+			
+	<%= form_for @sitecustomer do |f| -%>
+			<% if @sitecustomer.errors.any? %>
+				<h2>Errors</h2>
+				<ul>
+					<% @sitecustomer.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			<% end %>
+			<%= f.label :email %> <br />
+			<%= f.text_field :email %><br />
+			<%= f.label :password %> <br />
+			<%= f.password_field :password %><br />
+			
+			<%= f.submit 'Sign Up' %>
+	<%end -%>
+	</div>
+	</div>
+	</div>
+
+
+

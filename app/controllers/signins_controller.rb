@@ -3,21 +3,27 @@ class SigninsController < ApplicationController
     #@customer = Customer.new
   end
 
-  def login
-   email = params[:customer][:emailid]
-    pwd = params[:customer][:password]
+    def login
+   emailid = params[:sitecustomer][:email]
+    pwd = params[:sitecustomer][:password]
     
-    customer = Customer.find_by_emailid_and_password(email,pwd)
+    sitecustomer = Sitecustomer.find_by_email_and_password(emailid,pwd)
    
 
-    if customer 
+    if sitecustomer
+      customer = Customer.find_by_email(emailid) 
       session[:customer_id] = customer.id
-      flash[:notice] = 'Welcome.'
+     
       #render :action => "a"
-      render :action => "../homes/welcome"
+      if customer.email=="admin"
+        render :action => "admin_page"
+      else
+       redirect_to :root 
+      end
+      
     else
       flash.now[:error] = 'Unknown user. Please check your email id and password.'
-      render :action => "sign_in"
+      render :action => "invalidsignin"
     end
 
   end

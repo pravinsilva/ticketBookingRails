@@ -2,4 +2,16 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        sitecustomer:
+          attributes:
+            email:
+              blank: "Please Specify an Email id"
+              taken: "This email is already registered"
+              invalid: "Please Specify a valid Email id"
+            password:
+              blank: "Please Specify a Password"
+              
+              invalid: "should have min 6 alphanumeric characters"

@@ -7,6 +7,10 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+#for social login
+  gem 'omniauth-facebook'
+  gem 'certified'
+#till here for socail login
 
 # Gems used only for assets and not required
 # in production environments by default.

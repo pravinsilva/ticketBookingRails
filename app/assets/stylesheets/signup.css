@@ -2,7 +2,7 @@
 	position:relative;
 	top:90px;
 }
-#image{
+#image1{
 	
 float:left;
 box-shadow: 0px 30px 40px rgba(0,0,0,.1);
@@ -11,18 +11,10 @@ box-shadow: 0px 30px 40px rgba(0,0,0,.1);
 padding:20px;	
 float:left;
 font-size:large;
-color:#09154F;
+color:white;
 border:1px solid white;
 }
 
-body{
-	background:url(/assets/images/blue.jpg)repeat-x center top #09154F;
-	margin: 0;
-}
-p a,h3 a{
-	text-decoration: underline;
-	color: #8B8B8B;
-}
 
 /*-------------------------	Header --------------------------*/
 #header{

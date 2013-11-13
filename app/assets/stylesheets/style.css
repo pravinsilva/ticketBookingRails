@@ -1,6 +1,7 @@
 
 body{
-	background:url(/assets/images/blue.jpg)repeat-x center top #09154F;
+	background:url(/assets/images.jpg) no-repeat center center fixed; 
+
 	margin: 0;
 }
 p a,h3 a{
@@ -12,17 +13,20 @@ p a,h3 a{
 #header{
 	width: 960px;
 	margin: 0 auto;
+	
+	height:600px;
 	overflow: hidden;
 }
 #container1{
+	background:url(/assets/images.jpg) no-repeat center center fixed; 
 	width: 960px;
 	margin: 0 auto;
 	overflow: hidden;
-	border: 1px solid #33CCFF;
+	border: 1px solid #333399;
 	border-radius: 15px;
-	-moz-box-shadow: 0 0 5px #888;
--webkit-box-shadow: 0 0 5px#888;
-box-shadow: 0 0 5px #888;
+	-moz-box-shadow: 0 0 20px #0066CC;
+-webkit-box-shadow: 0 0 20px #0066CC;
+box-shadow: 0 0 20px #0066CC;
 }
 .header{
 	width: 960px;
@@ -31,6 +35,7 @@ box-shadow: 0 0 5px #888;
 	height: 600px;
 
 }
+
 #header ul#navigation,.header ul#navigation{
 	list-style: none;
 	padding: 25px 10px 0;
@@ -74,6 +79,7 @@ box-shadow: 0 0 5px #888;
 	height:10px;
 	position: absolute;
 	top:20px;
+	z-index: 2;
 }
 #header ul.navigation,.header ul.navigation{
 	list-style: none;
@@ -88,6 +94,16 @@ box-shadow: 0 0 5px #888;
 	z-index: 100;
 		
 	
+}
+#logindetails{
+	position: absolute;
+	left:800px;
+	color:white;
+	top:12
+	font-weight:bold;
+}
+#logindetails > a{
+	color:yellow;
 }
 #header ul.navigation li,.header ul.navigation li{
 	float: left;
@@ -112,6 +128,8 @@ box-shadow: 0 0 5px #888;
 	color:white;
 	padding-right:5px;
 font-weight:bold;
+position:relative;
+top:10px;
 		padding-top:5px;
 		padding-bottom:5px;
 }
@@ -124,10 +142,13 @@ font-weight:bold;
 	
 		padding-top:5px;
 		padding-bottom:5px;
-	background:yellow;
+   background: beige;
 	color:black;
 	font-weight:bold;
+	wid
 }
+
+
 #header div#featured{
 	clear: both;
 }
@@ -249,15 +270,19 @@ font-weight:bold;
 	left: -99999px;
 } 
 #header div#featured div h3{
-	color: #666666;
+	
     font-size: 16px;
     height: 40px;
     line-height: 30px;
     margin: 40px 0 0;
     text-align: center;
     width: 309px;
-	background: url(/assets/interface.gif) no-repeat 0 -90px;
+	background-color: #2F2727; background-image: url(images/radial_bg.png);
+  background-position: center center; background-repeat: no-repeat; /* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */ background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727)); /* Safari 5.1+, Chrome 10+ */ 
+ background: -webkit-radial-gradient(circle, #1a82f7, #2F2727); /* Firefox 3.6+ */ background: -moz-radial-gradient(circle, #1a82f7, #2F2727); /* IE 10 */ background: -ms-radial-gradient(circle, #1a82f7, #2F2727); 
 	font-family:Arial, Helvetica, sans-serif;
+	color: white;
+	font-weight:bold;
 }
 #header div#featured div form{
 	height: auto;
@@ -268,12 +293,10 @@ font-weight:bold;
 	background: url(/assets/bg-sidebar-bottom-curve.gif) no-repeat center bottom #fff;
 }
 #header div#featured div form input{
-	background: url(/assets/icons.gif) no-repeat 0 -104px;
-	text-indent: -99999px;
-	width: 62px;
-	height: 21px;
+	
+
 	border: 0;
-	cursor: pointer;
+	
 	display: block;
 	margin: 0 auto;
 }
@@ -288,10 +311,15 @@ font-weight:bold;
 	margin: 0;
 }
 #header div#featured div div h3{
-	background: url(/assets/interface.gif) no-repeat 0 -160px;
+		background-color: #2F2727; background-image: url(images/radial_bg.png);
+  background-position: center center; background-repeat: no-repeat; /* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */ background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727)); /* Safari 5.1+, Chrome 10+ */ 
+ background: -webkit-radial-gradient(circle, #1a82f7, #2F2727); /* Firefox 3.6+ */ background: -moz-radial-gradient(circle, #1a82f7, #2F2727); /* IE 10 */ background: -ms-radial-gradient(circle, #1a82f7, #2F2727); 
+	font-family:Arial, Helvetica, sans-serif;
 	width: 310px;
 	height: auto;
 	margin: 15px 0 0;
+	color: white
+	font-weight:bold;
 }
 #header div#featured div div ul{
 	background: url(./assets/bg-sidebar-bottom-curve2.gif) no-repeat left bottom;
@@ -332,7 +360,6 @@ font-weight:bold;
 	color: #8C8C8C;
 	text-decoration: underline;
 }
-
 /*-------------------------	Content --------------------------*/
 #content{
 	
@@ -448,11 +475,54 @@ border-top:		2px solid #a3ceda;
 	}
 	
 #mainmenu{
-background:#09154F;
+ background-color: #2F2727; background-image: url(images/radial_bg.png);
+  background-position: center center; background-repeat: no-repeat; /* Safari 4-5, Chrome 1-9 */ /* Can't specify a percentage size? Laaaaaame. */ background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727)); /* Safari 5.1+, Chrome 10+ */ 
+ background: -webkit-radial-gradient(circle, #1a82f7, #2F2727); /* Firefox 3.6+ */ background: -moz-radial-gradient(circle, #1a82f7, #2F2727); /* IE 10 */ background: -ms-radial-gradient(circle, #1a82f7, #2F2727); 
+border: 1px solid blue;
 
-height:30px;
 position:absolute;
-top:90px;
+bottom:140px;
 width:960px;
-z-index: -2;
+z-index: 0;
+}
+
+#container{
+	color: white;
+}
+
+#linkbutton a{
+	font: bold 14px Arial;
+    text-decoration: none;
+    background-color: #6960EC;
+    color: white;
+    margin:25px;
+    margin-bottom:100px;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+#fbbutton{
+	
+	position:relative;
+	top:30px;
+	left:0px;
+}
+
+
+#logincontain{
+
+width:150px;
+height:200px;
+border: 1px solid black;	
+
+}
+
+#logindetails{
+	position:absolute;
+	left:790px;
+	width:250px;
+	text-align:right;
 }
