@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+
+<html>
+	<head>
+		 
+  
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+ <%= javascript_include_tag('jquery-1.9.1.min.js') %>
+ <%= javascript_include_tag('jquery.leanModal.min.js') %>
+ 
+ <%= javascript_include_tag('jquery.jcarousel.min.js') %>
+<%= stylesheet_link_tag "carosel-style.css" %>
+<%= stylesheet_link_tag "carosel-skin.css" %>
+
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Cruise Vacation</title>
+		<%= stylesheet_link_tag "admin-page.css" %>
+	</head>
+	<body>
+		
+     
+ 
+  <div id="loginmodal" style="display:none;">
+   	<%= form_for @customer, :as => :customer, :url => sign_in_path(@customer) do |f| %>
+		  <p>
+		    <%= f.label 'Email id:' %><br />
+		    <%= f.text_field :emailid %>
+		  </p>
+		  <p>
+		    <%= f.label 'Password:' %><br />
+		    <%= f.password_field :password %>
+		  </p>
+		  <p>
+		    <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
+		    <%= f.submit 'Clear Form', :type => 'reset' %>
+		  </p>
+		<% end %>
+  </div>
+  
+  
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+    	wrap: 'circular'
+    });
+});
+jQuery(document).ready(function() {
+    jQuery('#mycarousel1').jcarousel({
+    	wrap: 'circular'
+    });
+});
+
+
+
+$(function(){
+  $('#loginform').submit(function(e){
+    return false;
+  });
+  
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+});
+</script>
+	
+			
+			<div id="featured1">
+				<div class="first">
+					<ul>
+						<li class="selected first">
+							
+							<br /> <br />
+								<h2> Welcome to the Admin page </h2>
+								<a href="../events/new">Add a new event</a>
+								
+								<br />
+								
+								<a href="../shows/new">Add shows</a>
+								<br />
+								
+								<a href="../screens/new">Set up screen</a>
+							
+						</li>
+						
+						
+					</ul>
+				</div>
+				<div>
+					<h3>Fast Forward Search </h3>
+					<form action="">
+					
+						<select name="" id="">
+							<option value="ship">Select Event </option>
+						</select>
+						<select name="" id="">
+							<option value="port"> Select Date</option></option>
+						</select>
+						<input type="submit" value=""/>
+					</form>
+					<div>
+						<h3>Already Booked?</h3>
+						<ul>
+							<li>
+								<a href="excursions.html">Check out our new Theatre</a>
+								<p>Theatre screen with amazing sound and ambience</p>
+							</li>
+							<li>
+								<a href="restaurant.html">Check out our Specialty Restaurant</a>
+								<p>Check our new Restaurant serving tasty cuisine</p>
+							</li>
+							<li>
+								<a href="activities.html">Check out our Special Activities</a>
+								<p>Please don't hesitate to ask for help </a>.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div> 
+	
+			<div>
+			
+			
+			<div id="content">
+				
+					<div id="smallheading">New Movies</div>
+					
+					
+
+				<div id="wrap">
+ 
+
+  <ul id="mycarousel" class="jcarousel-skin-tango">
+    <li><a href="www.google.com"><%= image_tag "images/grandmasti.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+    
+      <li><a href="www.google.com"><%= image_tag "images/satyagraha.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+        <li><a href="www.google.com"><%= image_tag "images/grownups.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+          <li><a href="www.google.com"><%= image_tag "images/horrorstory.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+          
+            <li><a href="www.google.com"><%= image_tag "images/phatabig.jpg" , :size => "150x200" %><div id="buttonfancy">Book Now</div></a></li>
+
+  </ul>
+
+</div>
+
+
+	</div>	
+		<div id="content">
+				
+					<div id="smallheading">Up Coming Events</div>
+					
+				<div id="wrap">
+ 
+  <ul id="mycarousel1" class="jcarousel-skin-tango">
+    <li><a href="www.google.com"><%= image_tag "images/besharam.jpg" , :size => "150x200" %></a></li>
+      <li><a href="www.google.com"><%= image_tag "images/zanjeer.jpg" , :size => "150x200" %></a></li>
+        <li><a href="www.google.com"><%= image_tag "images/krish.jpg" , :size => "150x200" %></a></li>
+          <li><a href="www.google.com"><%= image_tag "images/boss.jpg" , :size => "150x200" %></a></li>
+          
+            <li><a href="www.google.com"><%= image_tag "images/johnday.jpg" , :size => "150x200" %></a></li>
+
+  </ul>
+
+</div>
+
+
+	</div>	
+		</div>
+	

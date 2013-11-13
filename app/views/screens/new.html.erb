@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Set Up Screens</title>
+		 <%= stylesheet_link_tag "events.css" %>
+	</head>
+	<body>
+		<div id="eventcontainer">
+			Set Up Screens !!
+		<%= form_for  @screen do |f| -%>
+		<table>
+		<tr>
+			<td>
+			<div align="right">Screen Name:</div>
+			</label>
+			</td>
+			<td><div align="left">
+				 <%= f.text_field :screenName%>	
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Seats (default 150 ):</div>
+			</label>
+			</td>
+			<td><div align="left">
+				 <%= f.text_field :seats%>	
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+	<td>
+	<div align="right">Gold Rows (Each row has 30 seats ):</div>
+	</label>
+	</td>
+	<td><div align="left">
+		 <%= f.text_field :goldRows %>	<br/>
+		 <%= f.submit%>
+	</div>
+	</td>
+</tr>
+		</table>
+		<% end -%>
+			</div>
+			</div>
+	</div>
+	</body>	
+</html>
+   		

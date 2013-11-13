@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111063957) do
+ActiveRecord::Schema.define(:version => 20131111140538) do
 
   create_table "customers", :force => true do |t|
     t.string   "email"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20131111063957) do
   create_table "events", :force => true do |t|
     t.string   "eventName"
     t.text     "description"
+    t.string   "eventType"
     t.string   "image"
     t.string   "language"
     t.float    "rating",      :default => 0.0
@@ -35,6 +36,12 @@ ActiveRecord::Schema.define(:version => 20131111063957) do
 
   create_table "gold_rows", :force => true do |t|
     t.integer  "rowNumber"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "goldrows", :force => true do |t|
+    t.string   "rowNumber"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -65,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20131111063957) do
   create_table "screens", :force => true do |t|
     t.string   "screenName"
     t.integer  "seats",      :default => 150
+    t.integer  "goldRows"
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
   end

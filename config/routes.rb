@@ -14,13 +14,17 @@ TicketBooking1::Application.routes.draw do
   get "/homes/featured"
   
   get "/signins/admin_page"
+
+  get "/signins/admin_page"
   
  get "/signins/excursions"
  
  get "/signins/restaurant"
+ 
+ get "/shows/show_timing"
  resources :events
   
-  
+  resources :screens
   resources :shows
   
   resources :sitecustomers

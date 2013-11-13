@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+
+<html>
+	<head>
+		 
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			
+		<%= stylesheet_link_tag "viewshow.css" %>
+
+		<title>
+			Show Timings
+		</title>
+		
+		
+	</head>
+	<body>
+		<div id="eventcontainer">
+	<div id="timingtitle">Select Movie Timing </div>
+				<% @show_date= ((request.url).split('='))[1].split('+')[0] %> 
+				<% @eid = (request.url).split('=')[2] %>
+				
+				<% for event in @events %>
+					<% if event.id == (@eid.to_i) %>
+					<div id="eventname"><%= event.eventName %> </div><br/>
+					 
+						<div id="image1">		<img src = "/<%= event.image %>" /> </div> <br/>
+				
+					<% end %>
+				<% end %>
+				
+		<div id="showdescription">		Show Timing: <br/>
+				<div id="showDetails">
+				<% if !@shows.blank? %>
+					<% for show in @shows %>
+						<% if  show.showDate.to_s == @show_date.to_s  and  show.eventId.to_i == (@eid.to_i) %> 
+							<% if show.availableTickets.to_i > 0 %>
+								 <a href="www.google.com" ><%= show.startTime %> </a> 
+								 &nbsp &nbsp Price Rs: <%= show.price %>  <br/>
+							<% end %>	
+						<% end %>	 
+					<% end %>
+				<% end %>
+			</div>
+			</div>
+		</div>
+		</div>
+	</body>	
+</html>

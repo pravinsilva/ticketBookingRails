@@ -1,0 +1,96 @@
+
+#eventcontainer{
+	height:30px;
+position:relative;
+top:140px;
+width:800px;
+height:350px;
+color:white;
+z-index:1;
+padding: 10px;
+		  border: 3px solid #0000FF;
+	font-family:"Arial Black";
+	-moz-box-shadow: 0 0 10px white;
+-webkit-box-shadow: 0 0 10px white;
+box-shadow: 0 0 10px white;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:100px; //Or whatever value you would like
+    padding-right:100px; //Same ^
+    text-align:left;
+    
+}
+
+table{
+	color:black;
+	font-size:medium;
+}
+
+tr{
+	padding:20px;
+	margin:10px;
+}
+#header{
+	width: 960px;
+	margin: 0 auto;
+	
+	height:600px;
+	overflow: hidden;
+}
+#image1{
+	position:absolute;
+	top:90px;
+	left:5px;
+	
+}
+
+#image1 img
+{
+width:180px;
+height:200px;
+}
+
+#eventname{
+	position:absolute;
+	top:30px;
+	font-size: 42px;
+	left:40px;
+	font-family: impact;
+	text-transform:uppercase;
+}
+
+#showdescription{
+	position:absolute;
+	top:120px;
+	left:210px;
+
+
+}
+#text11{
+	color:yellow;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+#linkbutton input{
+
+    background-color: #6960EC;
+    border-color: #CCCCCC #333333 #333333 #CCCCCC;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font: bold 14px Arial;
+    margin: 25px 25px 100px;
+    padding: 2px 6px;
+    text-decoration: none;
+    position:relative;
+    top:20px;
+
+}
+#timingtitle{
+	position:absolute;
+	top:10px;
+	left:10px;
+}

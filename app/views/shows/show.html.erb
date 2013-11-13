@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+
+<html>
+	<head>
+		 
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			
+		<%= stylesheet_link_tag "viewshow.css" %>
+
+		<title>
+			Show details
+		</title>
+		<script>
+			function selected() {
+				var val=document.getElementById("select").value;
+				document.getElementById("show_date").value =val;
+				
+				
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div id="eventcontainer">
+				<div id="timingtitle">Select Movie Date </div>
+			<% @eid= (request.url).split('?')[1] %>
+			
+			<div id ="eventDetails">
+				<% for event in @events %>
+					<% if event.id == (@eid.to_i) %>
+			
+					<div id="eventname"><%= event.eventName %> </div><br/> 
+						<div id="image1">		<img src = "/<%= event.image %>" /> </div><br/>
+					<div id="showdescription"><span id="text11">Description :  </span><%= event.description %> <br/>
+				<span id="text11">		Type :</span> <%= event.eventType %>  <br/>
+				<span id="text11">		Language : </span><%= event.language %>  <br/>
+					<span id="text11">	Rating :  </span><%= event.rating %> <br/>
+					<span id="text11">	Certificate : </span><%= event.certificate %>  <br/> 
+					<% end %>
+				<% end %>
+		
+			
+			<br /> <br />
+			
+		<span id="text11">	Select Show Date: </span>
+			<select id="select" onchange = "selected()">
+				<option>Select Date</option>
+			<% if !@shows.blank? %>
+				<% for show in @shows %>
+					<% if show.eventId == (@eid.to_i) %>
+						<option value="<%= show.showDate %> "> <%= show.showDate %></option>
+						
+					<% else %>
+					<% end %>
+				<% end %>
+			<% end %>
+			</select>
+			
+		<form action="show_timing.html" method="get">
+			<input type="hidden" name="show_date" id="show_date" > <br />
+			<input type="hidden" name="eid" id="eid" value="<%= @eid%>" > 
+		<div id="linkbutton">	<input type="submit" value="Get Shows"></div>
+		</form>	
+			</div>
+			</div>
+			</div>
+		</div>
+	</body>	
+</html>
+   		
+	

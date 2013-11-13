@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+
+<html>
+	<head>
+		 
+  	 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		  <link rel="stylesheet" href="/resources/demos/style.css" />
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			
+		<%= stylesheet_link_tag "events.css" %>
+
+		<title>
+			Add shows
+		</title>
+		<script>
+			function selected() {
+				var val=document.getElementById("select").value;
+				document.getElementById("show_eventId").value=val;
+				//alert(document.getElementById("show_eventId").value);
+			}
+		</script>
+		
+	</head>
+	<body>
+		<div id="eventcontainer">
+				Add a show for an event !!
+		<%= form_for  @show do |f| -%>
+		
+		<%= f.hidden_field :eventId %>
+		<table>
+		<tr>
+			<td>
+			<div align="right">Event:</div>
+			</label>
+			</td>
+			<td><div align="left">
+				<select id="select" onchange = "selected()">
+					<option>Select Event</option>
+					<% @events.each do |e| %>
+					<option value="<%= e.id %> "> <%= e.eventName %> </option>
+					<% end %>
+				</select>
+				
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Show date: </div>
+			</label>
+			</td>
+			<td><div align="left">
+			<%= f.text_field :showDate,  :as => :datepicker %>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Start Time:</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :startTime%>
+			</div>
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td>
+			<div align="right">End Time:</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :endTime%>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+		
+		
+		<tr>
+			<td>
+			<div align="right">Screen</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :screenId%>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Available Tickets</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :availableTickets %>
+			</div>
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td>
+			<div align="right">Price</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :price %>
+			 <%= f.submit%>
+			</div>
+			</td>
+		</tr>
+		<% end -%>
+			<script>
+		$(function() {
+		function datepicked() {
+	        var show_showDate = $('#show_showDate').datepicker('getDate');
+	        
+		 }
+
+    	$('#show_showDate').datepicker({
+    	changeMonth: true, 
+		changeYear: true, 
+        dateFormat: 'dd-mm-yy',
+        minDate: '0',
+        maxDate: '+2Y',
+        onSelect: function(dateStr) {
+            var d1 = $(this).datepicker("getDate");
+            datepicked();
+        }
+    });
+    
+    
+			
+			
+			
+			
+
+    </script>  
+		
+		</table>
+	
+	<br/>
+	<br/>
+	
+		</div>
+			</div>
+	</div>
+	</body>	
+</html>
+   		
+	

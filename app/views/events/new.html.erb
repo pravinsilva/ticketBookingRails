@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+
+<html>
+	<head>
+		 
+  	 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		  <link rel="stylesheet" href="/resources/demos/style.css" />
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Cruise Vacation</title>
+		<%= stylesheet_link_tag "events.css" %>
+	</head>
+	<body>
+	
+		<% if flash[:notice] -%>
+		  <p class="notice"><%= flash[:notice] %></p>
+		<% end -%>
+		<% if flash[:error] -%>
+		  <p class="error"><%= flash[:error] %></p>
+		<% end -%>
+		
+	
+		<div id="eventcontainer">
+				Add an event !!
+			<%= form_for  @event do |f| -%>		
+			<table width="100%" border="0" cellspacing="0" cellpadding="6">
+		<tr>
+			<td>
+			<div align="right">Name:</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :eventName%>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Description:</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :description %>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Type:</div>
+			</label>
+			</td>
+			<td><div align="left">
+				<%= f.select :eventType ,[ 'Action', 'Adventure', 'Horror','Animated','Thriller','Sci-Fi','Romance','Comedy'], :prompt => 'Select Type' %>
+			 
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Image path:</div>
+			</label>
+			</td>
+			<td><div align="left">
+			 <%= f.text_field :image%>
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Language:</div>
+			</label>
+			</td>
+			<td><div align="left">
+				<%= f.select :language, ['Hindi','English','Tamil','Telegu'], :prompt => 'Select Language' %>
+			 
+			</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+			<div align="right">Certificate:</div>
+			</label>
+			</td>
+			<td><div align="left">
+			<%= f.select :certificate, ['U','U/A','A'], :prompt => 'Select Certificate' %>
+			</div>
+			</td>
+		</tr>
+		
+			<tr>
+			<td>
+			<div align="right">Start date: </div>
+			</label>
+			</td>
+			<td><div align="left">
+			<%= f.text_field :startDate,  :as => :datepicker %>
+			</div>
+			</td>
+		</tr>
+				<tr>
+			<td>
+			<div align="right">End date:  </div>
+			</label>
+			</td>
+			<td><div align="left">
+			<%= f.text_field :endDate,  :as => :datepicker  %> 
+			<%= f.submit%>
+			</div>
+			</td>
+		</tr>
+		
+	<tr></tr>	
+			<%end -%>
+		<script>
+		$(function() {
+		function datepicked() {
+	        var event_startDate = $('#event_startDate').datepicker('getDate');
+	        var event_endDate = $('#event_endDate').datepicker('getDate');
+		 }
+
+    	$('#event_startDate').datepicker({
+    	changeMonth: true, 
+		changeYear: true, 
+        dateFormat: 'dd-mm-yy',
+        minDate: '0',
+        maxDate: '+2Y',
+        onSelect: function(dateStr) {
+            var d1 = $(this).datepicker("getDate");
+            d1.setDate(d1.getDate() + 0); // change to + 1 if necessary
+            $("#event_endDate").datepicker("setDate", null);
+            $("#event_endDate").datepicker("option", "minDate", d1);
+            datepicked();
+        }
+    });
+ 
+    $('#event_endDate').datepicker({
+    	changeMonth: true, 
+		changeYear: true, 
+        dateFormat: 'dd-mm-yy',
+        minDate: '0',
+        maxDate: '+2Y',
+        onSelect: function(dateStr) {
+            datepicked();
+        }
+    });
+		});
+	</script>  
+
+		</table>
+
+	<br/>
+	<br/>
+	
+		</div>
+			</div>
+	</div>
+	</body>	
+</html>
+   		
+	
+
+		
+	
+
