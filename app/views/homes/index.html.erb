@@ -10,35 +10,68 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>Cruise Vacation</title>
 		<%= stylesheet_link_tag "style.css" %>
+		
+		<script>
+			function selected(sel)
+			{
+				document.getElementById("form1").action=" ";
+				document.getElementById("hidden").value=sel.value;
+				document.getElementById("form1").submit();
+				
+			}
+			function check()
+			{
+				
+				if((document.URL).indexOf("=") != -1)
+				{
+					var oid = (document.URL).split("=")[2].split('&')[0];
+					document.getElementById("hidden").value=oid;
+					//alert(oid);
+					document.getElementById(oid).selected=true;
+				}
+			}
+			function setdate(sel)
+			{
+				document.getElementById("showdate").value=sel.value;
+				//alert(document.getElementById("showdate").value);
+			}
+			function submit1()
+			{
+				//alert("submit");
+				//document.getElementById("showdate").value=document.getElementById("selectdate").value;
+				document.getElementById("form1").action="/../shows/show_timing.html";
+				document.getElementById("form1").submit();
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="check()">
 		
      
 
   
   
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    jQuery('#mycarousel').jcarousel({
-    	wrap: 'circular'
-    });
-});
-jQuery(document).ready(function() {
-    jQuery('#mycarousel1').jcarousel({
-    	wrap: 'circular'
-    });
-});
-
-
-
-$(function(){
-  $('#loginform').submit(function(e){
-    return false;
-  });
-  
-  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
-});
-</script>
+		<script type="text/javascript">
+		jQuery(document).ready(function() {
+		    jQuery('#mycarousel').jcarousel({
+		    	wrap: 'circular'
+		    });
+		});
+		jQuery(document).ready(function() {
+		    jQuery('#mycarousel1').jcarousel({
+		    	wrap: 'circular'
+		    });
+		});
+		
+		
+		
+		$(function(){
+		  $('#loginform').submit(function(e){
+		    return false;
+		  });
+		  
+		  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+		});
+		</script>
 
 			<div id="featured">
 				<div class="first">
@@ -56,15 +89,41 @@ $(function(){
 				</div>
 				<div>
 					<h3>Fast Forward Search </h3>
-					<form action="">
-					
-						<select name="" id="">
+					<% @time = Time.now %>
+				  	<% @month = @time.month %>
+				  	<% @day = @time.day %>
+					<form  method="get" id="form1">
+						<input type="hidden" name="showdate" id="showdate">
+						<input type="hidden" name="hidden" id="hidden">
+						<select name="" id="selectevent" onchange="selected(this)">
 							<option value="ship">Select Event </option>
+							<% @events.each do |e| %>
+								<% @enddate = e.endDate.to_s.split('-') %>
+						  		<% @mm = @enddate[1] %>
+						  		<% @dd = @enddate[2] %>
+						  		<% if @month.to_i == @mm.to_i %>
+  									<% if @dd.to_i >= @day.to_i %>
+										<option value="<%= e.id %>" id="<%= e.id %>"> <%= e.eventName %> </option>
+									<% end %>
+						  		<% else %>
+						  			<% if @mm.to_i > @month.to_i %>
+						  				<option value="<%= e.id %>" id="<%= e.id %>"> <%= e.eventName %> </option>
+						  			<% end %>
+								<% end %>
+						<% end %>
 						</select>
-						<select name="" id="">
+						
+						
+						<% @eid = request.url.split('=')[2].to_s.split('&')[0] %>
+						<select name="selectdate" id="" onchange="setdate(this)">
 							<option value="port"> Select Date</option></option>
+							<% @shows.each do |s| %>
+								<% if  s.eventId.to_i == @eid.to_i %>
+									<option value="<%= s.showDate %>"> <%= s.showDate %> </option></option>
+								<% end %>
+							<% end %>
 						</select>
-						<input type="submit" value=""/>
+						<input type="button" value="Search" onclick="submit1()"/>
 					</form>
 					<div>
 						<h3>Already Booked?</h3>
@@ -101,8 +160,20 @@ $(function(){
 
   <ul id="mycarousel" class="jcarousel-skin-tango">
   	
+  	
   	<% @events.each do |event| %>
-    <li><a href="/shows/show?<%=event.id%>"><img src= "<%= event.image%>" width="150" height="200"/><div id="buttonfancy">Book Now</div></a></li>
+  		<% @enddate = event.endDate.to_s.split('-') %>
+  		<% @mm = @enddate[1] %>
+  		<% @dd = @enddate[2] %>
+  		<% if @month.to_i == @mm.to_i %>
+  			<% if @dd.to_i >= @day.to_i %>
+  		  		<li><a href="/shows/show?<%=event.id%>"><img src= "<%= event.image%>" width="150" height="200"/><div id="buttonfancy">Book Now</div></a></li>
+  			<% end %>
+  		<% else %>
+  			<% if @mm.to_i > @month.to_i %>
+  				<li><a href="/shows/show?<%=event.id%>"><img src= "<%= event.image%>" width="150" height="200"/><div id="buttonfancy">Book Now</div></a></li>
+  			<% end %>
+  		<% end %>
   <% end %>
   </ul>
 
@@ -117,12 +188,21 @@ $(function(){
 				<div id="wrap">
  
   <ul id="mycarousel1" class="jcarousel-skin-tango">
-    <li><a href="www.google.com"><%= image_tag "images/besharam.jpg" , :size => "150x200" %></a></li>
-      <li><a href="www.google.com"><%= image_tag "images/zanjeer.jpg" , :size => "150x200" %></a></li>
-        <li><a href="www.google.com"><%= image_tag "images/krish.jpg" , :size => "150x200" %></a></li>
-          <li><a href="www.google.com"><%= image_tag "images/boss.jpg" , :size => "150x200" %></a></li>
-          
-            <li><a href="www.google.com"><%= image_tag "images/johnday.jpg" , :size => "150x200" %></a></li>
+  	<% @events.each do |event| %>
+  		<% @startdate = event.startDate.to_s.split('-') %>
+  		<% @mm = @startdate[1] %>
+  		<% @dd = @startdate[2] %>
+  		<% if @month.to_i == @mm.to_i %>
+  			<% if @dd.to_i > @day.to_i %>
+  		  		<li><img src= "<%= event.image%>" width="150" height="200"/></li>
+  			<% end %>
+  		<% else %>
+  			<% if @mm.to_i > @month.to_i %>
+  				<li><img src= "<%= event.image%>" width="150" height="200"/></li>
+  			<% end %>
+  		<% end %>
+  <% end %>
+    
 
   </ul>
 

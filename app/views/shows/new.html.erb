@@ -23,6 +23,11 @@
 				document.getElementById("show_eventId").value=val;
 				//alert(document.getElementById("show_eventId").value);
 			}
+			function screenSelected() {
+				var val=document.getElementById("screenselect").value;
+				document.getElementById("show_screenId").value=val;
+				//alert(document.getElementById("show_eventId").value);
+			}
 		</script>
 		
 	</head>
@@ -32,6 +37,7 @@
 		<%= form_for  @show do |f| -%>
 		
 		<%= f.hidden_field :eventId %>
+		<%= f.hidden_field :screenId %>
 		<table>
 		<tr>
 			<td>
@@ -93,7 +99,13 @@
 			</label>
 			</td>
 			<td><div align="left">
-			 <%= f.text_field :screenId%>
+				<select id="screenselect" onchange = "screenSelected()">
+					<option>Select Screen</option>
+					<% @screens.each do |s| %>
+					<option value="<%= s.id %> "> <%= s.screenName %> </option>
+					<% end %>
+				</select>
+			
 			</div>
 			</td>
 		</tr>

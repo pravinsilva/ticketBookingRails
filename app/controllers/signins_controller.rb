@@ -27,4 +27,10 @@ class SigninsController < ApplicationController
     end
 
   end
+ 
+ def admin_page
+   @events=Event.all
+   @shows=Show.all
+ end
+ 
 end

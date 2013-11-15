@@ -1,4 +1,9 @@
-
+#header {
+width: 960px;
+margin: 0 auto;
+height: 1000px;
+overflow: hidden;
+}
 #eventcontainer{
 	height:30px;
 position:relative;
@@ -21,10 +26,6 @@ padding: 10px;
 table{
 	color:black;
 	font-size:medium;
-	font-family:Arial;
-	position:relative;
-	right:40px;
-	width:400px;
 }
 
 tr{

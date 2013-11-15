@@ -5,10 +5,13 @@
 <html>
 	<head>
 		 
-
+  	 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		
+		  <link rel="stylesheet" href="/resources/demos/style.css" />
+	
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 			
-		<%= stylesheet_link_tag "viewshow.css" %>
+		<%= stylesheet_link_tag "events.css" %>
 
 		<title>
 			Show Timings
@@ -18,32 +21,38 @@
 	</head>
 	<body>
 		<div id="eventcontainer">
-	<div id="timingtitle">Select Movie Timing </div>
-				<% @show_date= ((request.url).split('='))[1].split('+')[0] %> 
-				<% @eid = (request.url).split('=')[2] %>
+				<% if request.url.include? "hidden" %>
+					
+					<% @show_date= ((request.url).split('='))[1].split('&')[0] %> 
+					<% @eid = ((request.url).split('=')[2]).split('&')[0] %>
+				<%else %>
+				
+					<% @show_date= ((request.url).split('='))[1].split('+')[0] %> 
+					<% @eid = (request.url).split('=')[2] %>
+				<% end %>
+				
 				
 				<% for event in @events %>
 					<% if event.id == (@eid.to_i) %>
-					<div id="eventname"><%= event.eventName %> </div><br/>
-					 
-						<div id="image1">		<img src = "/<%= event.image %>" /> </div> <br/>
-				
+						<img src = "/<%= event.image %>" /> <br/>
+					
 					<% end %>
 				<% end %>
 				
-		<div id="showdescription">		Show Timing: <br/>
+				Show Timing: <br/>
 				<div id="showDetails">
 				<% if !@shows.blank? %>
 					<% for show in @shows %>
 						<% if  show.showDate.to_s == @show_date.to_s  and  show.eventId.to_i == (@eid.to_i) %> 
 							<% if show.availableTickets.to_i > 0 %>
-								 <a href="www.google.com" ><%= show.startTime %> </a> 
-								 &nbsp &nbsp Price Rs: <%= show.price %>  <br/>
+								 <a href="bookseats.html?<%= show.id %>"><%= (show.startTime.to_s).split('')[12] %> <%= (show.startTime.to_s).split('')[13] %><%= (show.startTime.to_s).split('')[14] %><%= (show.startTime.to_s).split('')[15] %></a> 
+								 &nbsp &nbsp Price: <%= show.price %>  <br/>
+							<% else %>
+								Tickets are booked for all shows of selected date
 							<% end %>	
 						<% end %>	 
 					<% end %>
 				<% end %>
-			</div>
 			</div>
 		</div>
 		</div>

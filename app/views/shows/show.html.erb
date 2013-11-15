@@ -5,11 +5,13 @@
 <html>
 	<head>
 		 
-
+  	 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		 
+		  <link rel="stylesheet" href="/resources/demos/style.css" />
 	
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 			
-		<%= stylesheet_link_tag "viewshow.css" %>
+		<%= stylesheet_link_tag "events.css" %>
 
 		<title>
 			Show details
@@ -26,27 +28,25 @@
 	</head>
 	<body>
 		<div id="eventcontainer">
-				<div id="timingtitle">Select Movie Date </div>
 			<% @eid= (request.url).split('?')[1] %>
 			
 			<div id ="eventDetails">
 				<% for event in @events %>
 					<% if event.id == (@eid.to_i) %>
-			
-					<div id="eventname"><%= event.eventName %> </div><br/> 
-						<div id="image1">		<img src = "/<%= event.image %>" /> </div><br/>
-					<div id="showdescription"><span id="text11">Description :  </span><%= event.description %> <br/>
-				<span id="text11">		Type :</span> <%= event.eventType %>  <br/>
-				<span id="text11">		Language : </span><%= event.language %>  <br/>
-					<span id="text11">	Rating :  </span><%= event.rating %> <br/>
-					<span id="text11">	Certificate : </span><%= event.certificate %>  <br/> 
+						<img src = "/<%= event.image %>" /> <br/>
+						Event Name :  <%= event.eventName %> <br/>
+						Description : <%= event.description %> <br/>
+						Type : <%= event.eventType %> <br/>
+						Language : <%= event.language %> <br/>
+						Rating : <%= event.rating %> <br/>
+						Certificate : <%= event.certificate %> <br/> 
 					<% end %>
 				<% end %>
-		
+			</div>
 			
 			<br /> <br />
 			
-		<span id="text11">	Select Show Date: </span>
+			Select Show Date:
 			<select id="select" onchange = "selected()">
 				<option>Select Date</option>
 			<% if !@shows.blank? %>
@@ -60,14 +60,13 @@
 			<% end %>
 			</select>
 			
+			
 		<form action="show_timing.html" method="get">
 			<input type="hidden" name="show_date" id="show_date" > <br />
 			<input type="hidden" name="eid" id="eid" value="<%= @eid%>" > 
-		<div id="linkbutton">	<input type="submit" value="Get Shows"></div>
+			<input type="submit" value="Get Shows">
 		</form>	
-			</div>
-			</div>
-			</div>
+		</div>
 		</div>
 	</body>	
 </html>

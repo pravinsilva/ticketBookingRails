@@ -22,8 +22,14 @@ TicketBooking1::Application.routes.draw do
  get "/signins/restaurant"
  
  get "/shows/show_timing"
+ get "/shows/bookseats"
+ get "/tickets/new"
+ get "/tickets/ticket"
+ get "/tickets/guest_ticket"
+ get "/homes/index"
+
  resources :events
-  
+ resources :tickets
   resources :screens
   resources :shows
   
